@@ -2,8 +2,8 @@
 #if !defined(PUBSUB_OPTS_H)
 #define PUBSUB_OPTS_H
 
-#include "MQTTAsync.h"
-#include "MQTTClientPersistence.h"
+#include "inc/MQTTAsync.h"
+#include "inc/MQTTClientPersistence.h"
 
 struct pubsub_opts
 {

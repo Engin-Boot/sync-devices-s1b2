@@ -1,7 +1,7 @@
 #pragma once
 #include "inc/MQTTClient.h"
 #include "inc/MQTTClientPersistence.h"
-#include "inc/pubsub_opts.h"
+#include "pubsub_opts.h"
 #include "inc/MQTTAsync.h"
 #include <stdio.h>
 #include <signal.h>
