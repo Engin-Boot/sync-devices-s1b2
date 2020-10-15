@@ -3,7 +3,6 @@
 #include "inc/MQTTClientPersistence.h"
 #include "inc/pubsub_opts.h"
 #include "inc/MQTTAsync.h"
-#include "inc/pubsub_opts.h"
 #include <stdio.h>
 #include <signal.h>
 #include <string.h>
