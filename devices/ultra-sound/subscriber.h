@@ -1,8 +1,8 @@
 #pragma once
-#include "MQTTClient.h"
-#include "MQTTClientPersistence.h"
-#include "pubsub_opts.h"
-#include "MQTTAsync.h"
+#include "inc/MQTTClient.h"
+#include "inc/MQTTClientPersistence.h"
+#include "inc/pubsub_opts.h"
+#include "inc/MQTTAsync.h"
 #include <iostream>
 #include <Windows.h>
 #include <stdio.h>
@@ -12,10 +12,6 @@
 #define sleep Sleep
 
 using namespace std;
-
-/* External function which are used by subscriber to sava data and keep patient count*/
-/*This functions are called upon receiving the patient information*/
-
 
 int messageArrived(void* context, char* topicName, int topicLen, MQTTAsync_message* message);
 void OnDisconnect(void* context, MQTTAsync_successData* response);
