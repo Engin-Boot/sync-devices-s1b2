@@ -54,9 +54,14 @@ public:
     void setReceivedString(string msg)
     {
         Rmsg = msg;
+        string temp;
+        
     }
     string toString() {
         string result = name + ";" + to_string(age) + ";" + gender + ";" + procedureName;
         return result;
     }
 };
+
+extern string rec_msg;
+

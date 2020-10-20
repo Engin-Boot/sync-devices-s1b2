@@ -27,5 +27,6 @@ void Create_Client(const char* url, MQTTAsync_createOptions* create_opts, MQTTAs
 void Set_Callback(MQTTAsync client);
 void disconnect_Client(MQTTAsync_disconnectOptions disc_opts, MQTTAsync client);
 int SUBSCRIBEmain();
+void waitForSubscribe(int subscribed);
 
 

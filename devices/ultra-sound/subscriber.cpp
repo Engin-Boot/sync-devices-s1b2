@@ -9,20 +9,22 @@ volatile int finished = 0;
 int subscribed = 0;
 int disconnected = 0;
 patientInfo subscriberPatientInfo;
+
 MQTTAsync_connectOptions conn_opts = MQTTAsync_connectOptions_initializer;
 
 struct pubsub_opts subopts =
 {
 	0, 0, 0, MQTTASYNC_TRACE_MAXIMUM, "\n", 100,  	/* debug/app options */
 	NULL, NULL, 1, 0, 0, /* message options */
-	MQTTVERSION_DEFAULT,"my_topic", "ULTRSOUND1", 0, 0, NULL, NULL, "localhost", "1883", NULL, 10, /* MQTT options */
+	MQTTVERSION_DEFAULT,"my_topic", "patient-monitors1", 0, 0, NULL, NULL, "localhost", "1883", NULL, 10, /* MQTT options */
 };
 
 int messageArrived(void *context, char *topicName, int topicLen, MQTTAsync_message *message)
 {
 	size_t delimlen = 0;
 	printf("%.*s\n", message->payloadlen, (char*)message->payload);
-	subscriberPatientInfo.setReceivedString((char*)message->payload);
+	//subscriberPatientInfo.setReceivedString((char*)message->payload);
+	rec_msg = (char*)message->payload;
 	saveDataToCSV((char*)message->payload);
 	fflush(stdout);
 	MQTTAsync_freeMessage(&message);
@@ -111,6 +113,13 @@ void disconnect_Client(MQTTAsync_disconnectOptions disc_opts, MQTTAsync client)
 	}
 
 }
+
+void waitForSubscribe(int subscribed)
+{
+	while (!subscribed)
+		sleep(100);
+}
+
 int SUBSCRIBEmain()
 {
 	MQTTAsync client;
@@ -137,8 +146,8 @@ int SUBSCRIBEmain()
 		exit(EXIT_FAILURE);
 	}
 
-	while (!subscribed)
-		sleep(100);
+	waitForSubscribe(subscribed);
+	
 
 	
 	return 0;

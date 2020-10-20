@@ -9,6 +9,7 @@ volatile int finished = 0;
 int subscribed = 0;
 int disconnected = 0;
 patientInfo subscriberPatientInfo;
+
 MQTTAsync_connectOptions conn_opts = MQTTAsync_connectOptions_initializer;
 
 struct pubsub_opts subopts =
@@ -22,7 +23,8 @@ int messageArrived(void *context, char *topicName, int topicLen, MQTTAsync_messa
 {
 	size_t delimlen = 0;
 	printf("%.*s\n", message->payloadlen, (char*)message->payload);
-	subscriberPatientInfo.setReceivedString((char*)message->payload);
+	//subscriberPatientInfo.setReceivedString((char*)message->payload);
+	rec_msg = (char*)message->payload;
 	saveDataToCSV((char*)message->payload);
 	fflush(stdout);
 	MQTTAsync_freeMessage(&message);
@@ -111,6 +113,13 @@ void disconnect_Client(MQTTAsync_disconnectOptions disc_opts, MQTTAsync client)
 	}
 
 }
+
+void waitForSubscribe(int subscribed)
+{
+	while (!subscribed)
+		sleep(100);
+}
+
 int SUBSCRIBEmain()
 {
 	MQTTAsync client;
@@ -137,8 +146,8 @@ int SUBSCRIBEmain()
 		exit(EXIT_FAILURE);
 	}
 
-	while (!subscribed)
-		sleep(100);
+	waitForSubscribe(subscribed);
+	
 
 	
 	return 0;
