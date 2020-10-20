@@ -1,0 +1,54 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    
+jobs:
+  build:
+  
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Setup msbuild.exe
+      uses: microsoft/setup-msbuild@v1.0.0
+      
+    - name: static analysis of patient-monitor
+      run: ./Cppcheck_Config/cppcheck.exe devices/patient-monitors/main.cpp devices/patient-monitors/mainMenu.cpp devices/patient-monitors/patientCounter.cpp devices/patient-monitors/publisher.cpp devices/patient-monitors/subscriber.cpp devices/patient-monitors/saveDataToCSV.cpp --verbose --std=c++11 --language=c++ --enable=all
+
+    - name: static analysis of ultra-sound
+      run: ./Cppcheck_Config/cppcheck.exe devices/ultra-sound/main.cpp devices/ultra-sound/mainMenu.cpp devices/ultra-sound/patientCounter.cpp devices/ultra-sound/publisher.cpp devices/ultra-sound/subscriber.cpp devices/ultra-sound/saveDataToCSV.cpp --verbose --std=c++11 --language=c++ --enable=all
+
+    - name: static analysis of x-ray
+      run: ./Cppcheck_Config/cppcheck.exe devices/x-ray/main.cpp devices/x-ray/mainMenu.cpp devices/x-ray/patientCounter.cpp devices/x-ray/publisher.cpp devices/x-ray/subscriber.cpp devices/x-ray/saveDataToCSV.cpp --verbose --std=c++11 --language=c++ --enable=all
+    
+    - name: Build patient-monitors
+      run: msbuild devices/patient-monitors/patient-monitors.vcxproj /p:configuration=debug /p:platform=x64 
+    
+    - name: Build ultra-sound
+      run: msbuild devices/ultra-sound/ultra-sound.vcxproj /p:configuration=debug /p:platform=x64
+    
+    - name: Build x-ray
+      run: msbuild devices/x-ray/x-ray.vcxproj /p:configuration=debug /p:platform=x64
+   
+    - name: Cleaning patient-monitors build folder
+      run: msbuild devices/patient-monitors/patient-monitors.vcxproj /t:clean /p:configuration=debug /p:platform=x64
+      
+    - name: Cleaning ultra-sound build folder
+      run: msbuild devices/ultra-sound/ultra-sound.vcxproj /t:clean /p:configuration=debug /p:platform=x64
+    
+    - name: Cleaning x-ray build folder
+      run: msbuild devices/x-ray/x-ray.vcxproj /t:clean /p:configuration=debug /p:platform=x64
+
+    - name: Build patient-monitors-test
+      run: msbuild devices/patient-monitors/patient-monitors-test.vcxproj /p:configuration=debug /p:platform=x64
+    
+    - name: Build ultra-sound-test
+      run: msbuild devices/ultra-sound/ultra-sound-test.vcxproj /p:configuration=debug /p:platform=x64
+    
+    - name: Build x-ray-test
+      run: msbuild devices/x-ray/x-ray-test.vcxproj /p:configuration=debug /p:platform=x64
