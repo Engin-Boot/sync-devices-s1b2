@@ -1,5 +1,6 @@
+
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#include "../patient-monitors-test/catch.hpp"
 #include "patientInfo.h"
 #include "publisher.h"
 #include "subscriber.h"
@@ -9,7 +10,7 @@ extern int patientcount();
 extern void mainMenu();
 
 
-TEST_CASE("The published and the data received by subscriber is same for patient-monitors") {
+TEST_CASE("The published and the data received by subscriber is same for x-ray") {
 
 	SUBSCRIBEmain();
 	PUBLISHmain();
