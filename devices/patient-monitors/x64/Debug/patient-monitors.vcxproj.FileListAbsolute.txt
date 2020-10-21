@@ -1,2 +1,0 @@
-C:\Users\320089162\sync-devices-s1b2\devices\patient-monitors\x64\Debug\patient-monitors.exe
-C:\Users\320089162\sync-devices-s1b2\devices\patient-monitors\x64\Debug\patient-monitors.pdb

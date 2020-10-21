@@ -130,8 +130,8 @@ int mypublish(MQTTAsync client, int datalen, string data)
 {
 	int rc;
 
-	if (opts.verbose)
-		printf("Publishing data of length %d\n", datalen);
+	//if (opts.verbose)
+	//	printf("Publishing data of length %d\n", datalen);
 	rc = MQTTAsync_send(client, opts.topic, datalen, data.c_str(), opts.qos, opts.retained, &pub_opts);
 	if (rc != MQTTASYNC_SUCCESS && !opts.quiet)
 		fprintf(stderr, "Error from MQTTAsync_send: %s\n", MQTTAsync_strerror(rc));
