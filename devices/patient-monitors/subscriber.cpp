@@ -99,7 +99,7 @@ void Set_Callback(MQTTAsync client)
 		exit(EXIT_FAILURE);
 	}
 }
-void disconnect_Client(MQTTAsync_disconnectOptions disc_opts, MQTTAsync client)
+/*void disconnect_Client(MQTTAsync_disconnectOptions disc_opts, MQTTAsync client)
 {
 	int rc;
 	disc_opts.onSuccess = OnDisconnect;
@@ -110,7 +110,7 @@ void disconnect_Client(MQTTAsync_disconnectOptions disc_opts, MQTTAsync client)
 		exit(EXIT_FAILURE);
 	}
 
-}
+}*/
 
 void waitForSubscribe()
 {

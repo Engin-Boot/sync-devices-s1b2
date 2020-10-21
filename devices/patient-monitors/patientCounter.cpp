@@ -5,7 +5,7 @@
 #include<vector>
 using namespace std;
 
-int patientcount()
+/*int patientcount()
 {
 	int rows = 0;
 	ifstream file("patientDetailsReport.csv");
@@ -13,4 +13,4 @@ int patientcount()
 	while (getline(file, line))
 		rows++;
 	return rows-1;
-}
+}*/
