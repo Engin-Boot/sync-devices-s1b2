@@ -128,9 +128,7 @@
       <AdditionalDependencies>paho-mqtt3as.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-    
-      </Command>
+      <Command>xcopy /y /d "$(ProjectDir).\lib\paho-mqtt3as.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -173,7 +171,7 @@
       <AdditionalDependencies>paho-mqtt3as.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command> </Command>
+      <Command>xcopy /y /d "$(ProjectDir).\lib\paho-mqtt3as.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

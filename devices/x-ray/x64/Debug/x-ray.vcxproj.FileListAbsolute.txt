@@ -1,0 +1,2 @@
+C:\Users\320089162\sync-devices-s1b2\devices\x-ray\x64\Debug\x-ray.exe
+C:\Users\320089162\sync-devices-s1b2\devices\x-ray\x64\Debug\x-ray.pdb
