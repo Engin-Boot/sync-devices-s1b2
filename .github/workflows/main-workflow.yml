@@ -18,13 +18,13 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.0
       
     - name: static analysis of patient-monitor
-      run: ./Cppcheck_Config/cppcheck.exe devices/patient-monitors/patient-monitors-main.vcxproj --verbose --std=c++11 --language=c++ --enable=all --error-exitcode=1
+      run: ./Cppcheck_Config/cppcheck.exe devices/patient-monitors/patient-monitors.vcxproj --verbose --std=c++11 --language=c++ --enable=all --error-exitcode=1
 
     - name: static analysis of ultra-sound
-      run: ./Cppcheck_Config/cppcheck.exe devices/ultra-sound/ultra-sound-main.vcxproj --verbose --std=c++11 --language=c++ --enable=all --error-exitcode=1
+      run: ./Cppcheck_Config/cppcheck.exe devices/ultra-sound/ultra-sound.vcxproj --verbose --std=c++11 --language=c++ --enable=all --error-exitcode=1
 
     - name: static analysis of x-ray
-      run: ./Cppcheck_Config/cppcheck.exe devices/x-ray/x-ray-main.vcxproj --verbose --std=c++11 --language=c++ --enable=all --error-exitcode=1
+      run: ./Cppcheck_Config/cppcheck.exe devices/x-ray/x-ray.vcxproj --verbose --std=c++11 --language=c++ --enable=all --error-exitcode=1
     
     - name: Build patient-monitors
       run: msbuild devices/patient-monitors/patient-monitors.vcxproj /p:configuration=debug /p:platform=x64 
