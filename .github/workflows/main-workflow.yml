@@ -54,4 +54,4 @@ jobs:
       run: msbuild devices/x-ray-test/x-ray-test.vcxproj /p:configuration=debug /p:platform=x64
       
     - name: Run patient-monitors-test
-      run: ./devices/patient-monitors-test/x64/Debug/patient-monitors.exe   
+      run: ./devices/patient-monitors-test/x64/debug/patient-monitors-test.exe   
