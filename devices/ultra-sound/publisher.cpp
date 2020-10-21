@@ -8,7 +8,7 @@ struct pubsub_opts opts =
 {
 	1, 0, 0, 0, "\n", 100,  	/* debug/app options */
 	NULL, NULL, 1, 0, 0, /* message options */
-	MQTTVERSION_DEFAULT, "my_topic", "patient-monitors", 0, 0, NULL, NULL, "localhost", "1883", NULL, 10, /* MQTT options */
+	MQTTVERSION_DEFAULT, "my_topic", "ULTRA_SOUND", 0, 0, NULL, NULL, "localhost", "1883", NULL, 10, /* MQTT options */
 };
 
 
@@ -130,10 +130,10 @@ int mypublish(MQTTAsync client, int datalen, string data)
 {
 	int rc;
 
-	//if (opts.verbose)
-	//	printf("Publishing data of length %d\n", datalen);
+	if (opts.verbose)
+		printf("Publishing data of length %d\n", datalen);
 	rc = MQTTAsync_send(client, opts.topic, datalen, data.c_str(), opts.qos, opts.retained, &pub_opts);
-	if (rc != MQTTASYNC_SUCCESS && !opts.quiet)
+	if (opts.verbose && rc != MQTTASYNC_SUCCESS && !opts.quiet)
 		fprintf(stderr, "Error from MQTTAsync_send: %s\n", MQTTAsync_strerror(rc));
 
 	return rc;

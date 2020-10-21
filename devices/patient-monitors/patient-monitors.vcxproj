@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="patient-monitors-main.cpp" />
     <ClCompile Include="mainMenu.cpp" />
     <ClCompile Include="patientCounter.cpp" />
     <ClCompile Include="publisher.cpp" />
@@ -118,18 +118,18 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src\CMakeFiles\paho-mqtt3as.dir;C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src\CMakeFiles\paho-mqtt3c.dir;C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src\CMakeFiles\common_obj.dir;C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\src\samples;C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>paho-mqtt3c.lib;paho-mqtt3c.exp;paho-mqtt3as.lib;paho-mqtt3as.exp;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>paho-mqtt3as.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y /d "C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src\paho-mqtt3c.dll" "$(OutDir)"
-xcopy /y /d "C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src\paho-mqtt3as.dll" "$(OutDir)"</Command>
+      <Command>
+        </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -160,7 +160,7 @@ xcopy /y /d "C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src\paho
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src\CMakeFiles\paho-mqtt3as.dir;C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src\CMakeFiles\paho-mqtt3c.dir;C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src\CMakeFiles\common_obj.dir;C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\src\samples;C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -168,12 +168,12 @@ xcopy /y /d "C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src\paho
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>paho-mqtt3c.lib;paho-mqtt3c.exp;paho-mqtt3as.lib;paho-mqtt3as.exp;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>paho-mqtt3as.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y /d "C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src\paho-mqtt3c.dll" "$(OutDir)"
-xcopy /y /d "C:\Users\rahulaggrawal\source\repos\paho.mqtt.c\build.paho\src\paho-mqtt3as.dll" "$(OutDir)"</Command>
+      <Command>
+       </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

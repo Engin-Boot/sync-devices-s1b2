@@ -1,7 +1,5 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
-//#include "patientInfo.h"
-//#include "../MRI/Procedure.cpp"
 #include "patientInfo.h"
 #include "publisher.h"
 #include "subscriber.h"
@@ -9,7 +7,6 @@
 using namespace std;
 extern int patientcount();
 extern void mainMenu();
-string rec_msg;
 
 
 TEST_CASE("The published and the data received by subscriber is same") {
@@ -23,7 +20,6 @@ TEST_CASE("The published and the data received by subscriber is same") {
 	testPatientInfo.setProcedureName("puncture");
 
 	string message = testPatientInfo.toString();
-	Sleep(5000);
 
 	struct pubsub_opts opts =
 	{
@@ -36,4 +32,8 @@ TEST_CASE("The published and the data received by subscriber is same") {
 	Sleep(5000);
 
 	REQUIRE(message == rec_msg);
+}
+
+TEST_CASE("Connection to broker is being made") {
+
 }

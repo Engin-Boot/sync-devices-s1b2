@@ -4,11 +4,10 @@
 extern void saveDataToCSV(string);
 extern int patientcount();
 extern void setPatientInfoOnSubscriber(string);
-
+string rec_msg;
 volatile int finished = 0;
 int subscribed = 0;
 int disconnected = 0;
-patientInfo subscriberPatientInfo;
 
 MQTTAsync_connectOptions conn_opts = MQTTAsync_connectOptions_initializer;
 
@@ -23,7 +22,6 @@ int messageArrived(void *context, char *topicName, int topicLen, MQTTAsync_messa
 {
 	size_t delimlen = 0;
 	printf("%.*s\n", message->payloadlen, (char*)message->payload);
-	//subscriberPatientInfo.setReceivedString((char*)message->payload);
 	rec_msg = (char*)message->payload;
 	saveDataToCSV((char*)message->payload);
 	fflush(stdout);
@@ -114,7 +112,7 @@ void disconnect_Client(MQTTAsync_disconnectOptions disc_opts, MQTTAsync client)
 
 }
 
-void waitForSubscribe(int subscribed)
+void waitForSubscribe()
 {
 	while (!subscribed)
 		sleep(100);
@@ -146,9 +144,7 @@ int SUBSCRIBEmain()
 		exit(EXIT_FAILURE);
 	}
 
-	waitForSubscribe(subscribed);
-	
+	waitForSubscribe();
 
-	
 	return 0;
 }
