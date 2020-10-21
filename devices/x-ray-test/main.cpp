@@ -1,9 +1,9 @@
 
 #define CATCH_CONFIG_MAIN
 #include "../patient-monitors-test/catch.hpp"
-#include "patientInfo.h"
-#include "publisher.h"
-#include "subscriber.h"
+#include "../x-ray/patientInfo.h"
+#include "../x-ray/publisher.h"
+#include "../x-ray/subscriber.h"
 
 using namespace std;
 extern int patientcount();
