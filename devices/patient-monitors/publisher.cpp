@@ -35,13 +35,13 @@ void onConnectFailure(void* context, MQTTAsync_failureData* response)
 	fprintf(stderr, "Connect failed, rc %s\n", response ? MQTTAsync_strerror(response->code) : "none");
 	connected = -1;
 
-	MQTTAsync client = (MQTTAsync)context;
+	//MQTTAsync client = (MQTTAsync)context;
 }
 
 void onConnect(void* context, MQTTAsync_successData* response)
 {
-	MQTTAsync client = (MQTTAsync) context;
-	int rc = 0;
+	//MQTTAsync client = (MQTTAsync) context;
+	//int rc = 0;
 
 	if (opts.verbose)
 		printf("Connected\n");
@@ -130,8 +130,8 @@ int mypublish(MQTTAsync client, int datalen, string data)
 {
 	int rc;
 
-	//if (opts.verbose)
-	//	printf("Publishing data of length %d\n", datalen);
+	if (opts.verbose)
+		printf("Publishing data of length %d\n", datalen);
 	rc = MQTTAsync_send(client, opts.topic, datalen, data.c_str(), opts.qos, opts.retained, &pub_opts);
 	if (rc != MQTTASYNC_SUCCESS && !opts.quiet)
 		fprintf(stderr, "Error from MQTTAsync_send: %s\n", MQTTAsync_strerror(rc));
@@ -147,13 +147,13 @@ int publish(string s)
 
 int PUBLISHmain()
 {
-	MQTTAsync_disconnectOptions disc_opts = MQTTAsync_disconnectOptions_initializer;
+	//MQTTAsync_disconnectOptions disc_opts = MQTTAsync_disconnectOptions_initializer;
 	MQTTAsync_createOptions create_opts = MQTTAsync_createOptions_initializer;
 	
-	int url_allocated = 1;
+	//int url_allocated = 1;
 	 const char* url = "localhost:1883";
 	
-	int rc = 0;
+	//int rc = 0;
 	
 	printf("URL is %s\n", url);
 

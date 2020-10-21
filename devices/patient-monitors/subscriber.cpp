@@ -20,7 +20,7 @@ struct pubsub_opts subopts =
 
 int messageArrived(void *context, char *topicName, int topicLen, MQTTAsync_message *message)
 {
-	size_t delimlen = 0;
+	//size_t delimlen = 0;
 	printf("%.*s\n", message->payloadlen, (char*)message->payload);
 	rec_msg = (char*)message->payload;
 	saveDataToCSV((char*)message->payload);
@@ -121,7 +121,7 @@ void waitForSubscribe()
 int SUBSCRIBEmain()
 {
 	MQTTAsync client;
-	MQTTAsync_disconnectOptions disc_opts = MQTTAsync_disconnectOptions_initializer;
+	//MQTTAsync_disconnectOptions disc_opts = MQTTAsync_disconnectOptions_initializer;
 	MQTTAsync_createOptions create_opts = MQTTAsync_createOptions_initializer;
 	int rc = 0;
 	const char* url = "localhost:1883";

@@ -129,6 +129,7 @@
     </Link>
     <PostBuildEvent>
       <Command>
+    
       </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -172,7 +173,7 @@
       <AdditionalDependencies>paho-mqtt3as.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command></Command>
+      <Command> </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

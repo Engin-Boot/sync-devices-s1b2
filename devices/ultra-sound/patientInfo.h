@@ -15,7 +15,7 @@ private:
 
 public:
     patientInfo() {}
-    patientInfo(string Name, string Gender, int Age, string ProcedureName,string RMSG) : name(Name), gender(Gender), age(Age), procedureName(ProcedureName),Rmsg(RMSG) {}
+    patientInfo(const string& Name, const string& Gender, int Age, const string& ProcedureName, const string& RMSG) : name(Name), gender(Gender), age(Age), procedureName(ProcedureName),Rmsg(RMSG) {}
 
     string getName() {
         return name;
@@ -37,24 +37,24 @@ public:
         return Rmsg;
     }
 
-    void setName(string newName) {
+    void setName(const string& newName) {
         name = newName;
     }
 
-    void setGender(string newGender) {
+    void setGender(const string& newGender) {
         gender = newGender;
     }
 
     void setAge(int newAge) {
         age = newAge;
     }
-    void setProcedureName(string newProcedure) {
+    void setProcedureName(const string& newProcedure) {
         procedureName = newProcedure;
     }
-    void setReceivedString(string msg)
+    void setReceivedString(const string& msg)
     {
         Rmsg = msg;
-        string temp;
+        //string temp;
         
     }
     string toString() {
