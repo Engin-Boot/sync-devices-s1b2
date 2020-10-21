@@ -45,10 +45,10 @@ jobs:
       run: msbuild devices/x-ray/x-ray.vcxproj /t:clean /p:configuration=debug /p:platform=x64
 
     - name: Build patient-monitors-test
-      run: msbuild devices/patient-monitors/patient-monitors-test.vcxproj /p:configuration=debug /p:platform=x64
+      run: msbuild devices/patient-monitors-test/patient-monitors-test.vcxproj /p:configuration=debug /p:platform=x64
     
     - name: Build ultra-sound-test
-      run: msbuild devices/ultra-sound/ultra-sound-test.vcxproj /p:configuration=debug /p:platform=x64
+      run: msbuild devices/ultra-sound-test/ultra-sound-test.vcxproj /p:configuration=debug /p:platform=x64
     
     - name: Build x-ray-test
-      run: msbuild devices/x-ray/x-ray-test.vcxproj /p:configuration=debug /p:platform=x64
+      run: msbuild devices/x-ray-test/x-ray-test.vcxproj /p:configuration=debug /p:platform=x64
