@@ -13,5 +13,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-   - name: install mqtt local broker mosquitto
+    - name: install mqtt local broker mosquitto
       run:  sudo apt-get update && sudo apt-get install mosquitto
