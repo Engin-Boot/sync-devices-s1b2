@@ -8,8 +8,8 @@ struct pubsub_opts opts =
 {
 	1, 0, 0, 0, "\n", 100,  	/* debug/app options */
 	NULL, NULL, 1, 0, 0, /* message options */
-	//MQTTVERSION_DEFAULT, "my_topic", "patient-monitors", 0, 0, NULL, NULL, "localhost", "1883", NULL, 10, /* MQTT options */
-	MQTTVERSION_DEFAULT, "my_topic", "patient-monitors", 0, 0, NULL, NULL, NULL, NULL, (char*)"ssl://mqtt.eclipse.org:1883", 20, /* MQTT options */
+	MQTTVERSION_DEFAULT, "my_topic", "patient-monitors", 0, 0, NULL, NULL, "localhost", "1883", NULL, 10, /* MQTT options */
+	//MQTTVERSION_DEFAULT, "my_topic", "patient-monitors", 0, 0, NULL, NULL, NULL, NULL, (char*)"ssl://mqtt.eclipse.org:1883", 20, /* MQTT options */
 };
 
 
