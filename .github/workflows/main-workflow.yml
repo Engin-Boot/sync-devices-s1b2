@@ -53,8 +53,8 @@ jobs:
     - name: Build x-ray-test
       run: msbuild devices/x-ray-test/x-ray-test.vcxproj /p:configuration=debug /p:platform=x64
       
-    - name: run mosquitto local server
-      run:  ./mosquitto/mosquitto.exe
+    - name: install mqtt local broker mosquitto
+      run:  sudo apt-get install mosquitto
 
     - name: Run patient-monitors-test
       run: ./devices/patient-monitors-test/x64/debug/patient-monitors-test.exe   
