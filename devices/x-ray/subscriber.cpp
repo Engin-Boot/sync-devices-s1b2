@@ -15,7 +15,8 @@ struct pubsub_opts subopts =
 {
 	0, 0, 0, MQTTASYNC_TRACE_MAXIMUM, "\n", 100,  	/* debug/app options */
 	NULL, NULL, 1, 0, 0, /* message options */
-	MQTTVERSION_DEFAULT,"my_topic", "xray1", 0, 0, NULL, NULL, "localhost", "1883", NULL, 10, /* MQTT options */
+	//MQTTVERSION_DEFAULT,"my_topic", "xray1", 0, 0, NULL, NULL, "localhost", "1883", NULL, 10, /* MQTT options */
+	MQTTVERSION_DEFAULT,"my_topic", "xray1", 0, 0, NULL, NULL, NULL, NULL, (char*)"ssl://mqtt.eclipse.org:1883", 20, /* MQTT options */
 };
 
 int messageArrived(void *context, char *topicName, int topicLen, MQTTAsync_message *message)
@@ -124,7 +125,7 @@ int SUBSCRIBEmain()
 	//MQTTAsync_disconnectOptions disc_opts = MQTTAsync_disconnectOptions_initializer;
 	MQTTAsync_createOptions create_opts = MQTTAsync_createOptions_initializer;
 	int rc = 0;
-	const char* url = "localhost:1883";
+	const char* url = "mqtt.eclipse.org:1883";
 	printf("URL is %s\n", url);
 	Create_Client(url, &create_opts,&client);
 	Set_Callback(client);
