@@ -56,8 +56,8 @@ jobs:
     - name: Run patient-monitors-test
       run: ./devices/patient-monitors-test/x64/debug/patient-monitors-test.exe   
 
-    - name: Run patient-monitors-test
+    - name: Run ultra-sound-test
       run: ./devices/ultra-sound-test/x64/debug/ultra-sound-test.exe   
 
-    - name: Run patient-monitors-test
+    - name: Run x-ray-test
       run: ./devices/x-ray-test/x64/debug/x-ray-test.exe   
