@@ -15,7 +15,8 @@ struct pubsub_opts subopts =
 {
 	0, 0, 0, MQTTASYNC_TRACE_MAXIMUM, "\n", 100,  	/* debug/app options */
 	NULL, NULL, 1, 0, 0, /* message options */
-	MQTTVERSION_DEFAULT,"my_topic", "patient-monitors1", 0, 0, NULL, NULL, "localhost", "1883", NULL, 10, /* MQTT options */
+	//MQTTVERSION_DEFAULT,"my_topic", "patient-monitors1", 0, 0, NULL, NULL, "localhost", "1883", NULL, 10, /* MQTT options */
+	MQTTVERSION_DEFAULT,"my_topic", "patient-monitors1", 0, 0, NULL, NULL, NULL, NULL, (char*)"ssl://mqtt.eclipse.org:1883", 20, /* MQTT options */
 };
 
 int messageArrived(void *context, char *topicName, int topicLen, MQTTAsync_message *message)
