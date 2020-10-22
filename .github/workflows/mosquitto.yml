@@ -1,0 +1,17 @@
+name: Mosquitto mqtt broker
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+   - name: install mqtt local broker mosquitto
+      run:  sudo apt-get install mosquitto
