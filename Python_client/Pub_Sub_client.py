@@ -28,29 +28,45 @@ def on_disconnect(client, userdata,rc=0):
     client.loop_stop()
     
 ########################################
+
+def on_subscribe(client, userdata, mid, granted_qos):
+    f = open("subscribe_log.txt", "w")
+    f.write("Subscription successful")
+    f.close()
+
+########################################
+    
+def on_publish(client, userdata, mid):
+    f = open("publish_log.txt", "w")
+    f.write("Publishing successful")
+    f.close()
+
+########################################
     
 def subscriber():
-    broker_address="127.0.0.1"
-    #broker_address="mqtt.eclipse.org"
-    client = mqtt.Client("P1") #create new instance
+    #broker_address="127.0.0.1"
+    broker_address="mqtt.eclipse.org"
+    client = mqtt.Client() #create new instance
     client.on_message=on_message #attach function to callback
     client.connect(broker_address) #connect to broker
     client.loop_start()
     client.on_disconnect=on_disconnect
     client.subscribe("my_topic")
+    client.on_subscribe=on_subscribe
     
 ###########################################
 def publisher():
-    broker_address="127.0.0.1"
-    #broker_address="mqtt.eclipse.org"
+    #broker_address="127.0.0.1"
+    broker_address="mqtt.eclipse.org"
     client = mqtt.Client("P2") #create new instance
     client.on_message=on_message #attach function to callback
     client.connect(broker_address) #connect to broker
-    message=takePatientInput()
-    print("Publishing message to topic","my_topic")
+    client.loop_start()
+    client.on_publish=on_publish
     client.publish("my_topic",message)
+    time.sleep(2)
+    client.loop_stop()
     sys.exit()
-
 ###########################################    
 if __name__=="__main__":
     try:
@@ -61,6 +77,7 @@ if __name__=="__main__":
         t1.start()
         num=input("welcome!!! enter 1 if you want to enter your details else do nothing\n")
         if(int(num)==1):
+            message=takePatientInput()
             t2.start()
             t2.join()
     except KeyboardInterrupt:
