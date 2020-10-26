@@ -61,3 +61,20 @@ jobs:
 
     - name: Run x-ray-test
       run: ./devices/x-ray-test/x64/debug/x-ray-test.exe   
+
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+     
+    - name: Test Python Client
+      run: |
+        python ./Python_client/test_client.py
+
+    - name: Test Inventory Manager
+      run: |
+        python ./InventoryManager/test-InventoryManager.py 
