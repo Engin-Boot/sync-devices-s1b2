@@ -12,7 +12,7 @@ import csv
 #Global Variables which are fixed
 
 procedureDict={"cardiac": "Cardiac Cathether"}
-InventoryPath="D:\a\sync-devices-s1b2\sync-devices-s1b2\InventoryManager\Inventory.csv"
+InventoryPath="D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\InventoryManager\\Inventory.csv"
 
 #################################################################################
 #SMTP details, using localhost here so login and email not required
@@ -124,7 +124,7 @@ class Handler(watchdog.events.PatternMatchingEventHandler):
                                                              ignore_directories=True, case_sensitive=False)
 
     def on_modified(self, event):
-        patientCSVpath="D:\a\sync-devices-s1b2\sync-devices-s1b2\devices\patient-monitors\x64\debug\patientdetailsReport.csv"
+        patientCSVpath="D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\devices\\patient-monitors\\x64\\debug\\patientdetailsReport.csv"
         print("Watchdog received modified event - % s." % event.src_path)
         if(str(event.src_path)==patientCSVpath):
             print("right file modified")
@@ -138,7 +138,7 @@ class Handler(watchdog.events.PatternMatchingEventHandler):
 
 if __name__ == "__main__":
     #path to be observed
-    src_path = "D:\a\sync-devices-s1b2\sync-devices-s1b2\devices\patient-monitors\x64\debug\"
+    src_path = "D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\devices\\patient-monitors\\x64\debug\\"
 
     event_handler = Handler()
     observer = watchdog.observers.Observer()

@@ -16,22 +16,20 @@ class TestReadLogs(unittest.TestCase):
 
     def test_when_the_inventory_file_is_in_correct_format(self):
         
-        testfilepath = "C:/Users/Lenovo/source/repos/sync-devices-s1b2-local/devices/patient-monitors/test-watcher3.csv"
-  
+        testfilepath = "D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\InventoryManager\\test-watcher3.csv"
         value = mainfile.checkInventoryFile(testfilepath)
         self.assertTrue(value == True)
 
 
     def test_when_the_inventory_file_is_in_incorrect_format(self):
         
-        testfilepath = "C:/Users/Lenovo/source/repos/sync-devices-s1b2-local/devices/patient-monitors/test-watcher1.csv"
-       
+        testfilepath = "D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\InventoryManager\\test-watcher1.csv"
         value = mainfile.checkInventoryFile(testfilepath)
         self.assertTrue(value == False)
 
 
     def test_when_the_procedure_performed_is_not_present_in_procedure_record_then_return_0_and_print_error_statement(self):
-        print("test 2 output:")
+       
         value=mainfile.checkProcedureAndOperate("heart")
         self.assertTrue(value==0)
 
@@ -44,23 +42,20 @@ class TestReadLogs(unittest.TestCase):
 
     def test_when_modified_patientinfo_csv_file_is_read_then_its_last_line_procedure_column_data_is_stored(self):
         #deep,10,M,brain,
-        testfilepath="C:/Users/Lenovo/source/repos/sync-devices-s1b2-local/devices/patient-monitors/test-watcher1.csv"
-        print("test 4 output:")
+        testfilepath="D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\InventoryManager\\test-watcher1.csv"
         value=mainfile.import_csv(testfilepath)
         self.assertTrue(value=="brain")
 
 
     def test_when_patientinfo_csv_file_is_not_in_correct_format(self):
-        testfilepath="C:/Users/Lenovo/source/repos/sync-devices-s1b2-local/devices/patient-monitors/test-watcher2.csv"
-        print("test 5 output:")
+        testfilepath="D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\InventoryManager\\test-watcher2.csv"
         value=mainfile.checkPatientFileFormat(testfilepath)
         self.assertTrue(value==False)
 
 
     def test_when_patientinfo_csv_file_is_in_correct_format(self):
         #deep,10,M,brain,
-        testfilepath = "C:/Users/Lenovo/source/repos/sync-devices-s1b2-local/devices/patient-monitors/test-watcher1.csv"
-        print("test 6 output:")
+        testfilepath = "D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\InventoryManager\\test-watcher1.csv"
         value = mainfile.checkPatientFileFormat(testfilepath)
         self.assertTrue(value == True)
 
