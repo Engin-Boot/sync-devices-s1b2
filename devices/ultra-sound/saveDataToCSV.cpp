@@ -6,11 +6,23 @@
 
 using namespace std;
 
+void IfFirstOperationCreateCSV()
+{
+	fstream fout;
+	fout.open("patientdetailsReport.csv");
+	if (fout.fail())
+	{
+		fout.open("patientdetailsReport.csv", ios::out);
+		fout << "PatientName" << "," << "Age" << "," << "Gender" << "," << "Procedure" << "," << "\n";
+	}
+	return;
+}
 
 void saveDataToCSV(string msg)
 {
 	fstream fout;
-	fout.open("patientdetailsReport.csv", ios::out | ios::app);
+	IfFirstOperationCreateCSV();
+	fout.open("patientdetailsReport.csv", ios::app);
 	string param;
 	vector<string> patientParam;
 	stringstream ss(msg);
