@@ -43,8 +43,8 @@ def on_publish(client, userdata, mid):
 ########################################
     
 def subscriber():
-    broker_address="127.0.0.1"
-    #broker_address="mqtt.eclipse.org"
+    #broker_address="127.0.0.1"
+    broker_address="mqtt.eclipse.org"
     client = mqtt.Client() #create new instance
     client.on_message=on_message #attach function to callback
     client.connect(broker_address) #connect to broker
@@ -55,8 +55,8 @@ def subscriber():
     
 ###########################################
 def publisher():
-    broker_address="127.0.0.1"
-    #broker_address="mqtt.eclipse.org"
+    #broker_address="127.0.0.1"
+    broker_address="mqtt.eclipse.org"
     client = mqtt.Client("P2") #create new instance
     client.on_message=on_message #attach function to callback
     client.connect(broker_address) #connect to broker
