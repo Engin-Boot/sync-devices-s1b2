@@ -32,7 +32,7 @@ This runs the Python client device. Now you can communicate with the rest of the
 # Working Mechanism
 
 - Each device has 2 client IDs. One for publishing and one for subscribing.
-- Each device connects to the online broker [MQTT Eclipse](mqtt.eclipse.org).
+- Each device connects to the online broker [MQTT Eclipse](ssl://mqtt.eclipse.org).
 - Each device subscribes to a specific topic and listens on port 1883 and receives any new message which has been published to that port.
 - Every device can also publish their own message to a specific topic.
 - The code internally uses separate threads for subscriber and publisher.
