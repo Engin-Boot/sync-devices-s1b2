@@ -24,7 +24,7 @@ int main()
 	cin >> option;
 	if (option == 1)
 		mainMenu();
-	Sleep(2000);
+	Sleep(4000);
 	return 0;
 
 }
