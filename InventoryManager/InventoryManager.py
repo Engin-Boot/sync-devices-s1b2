@@ -12,8 +12,12 @@ import csv
 #Global Variables which are fixed
 
 procedureDict={"cardiac": "Cardiac Cathether"}
+#path to inventory file
 InventoryPath="D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\InventoryManager\\Inventory.csv"
-
+#path to be observed
+src_path = "D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\devices\\patient-monitors\\x64\debug\\"
+#path to patient info file
+patientCSVpath="D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\devices\\patient-monitors\\x64\\debug\\patientdetailsReport.csv"
 #################################################################################
 #SMTP details, using localhost here so login and email not required
 
@@ -23,17 +27,20 @@ sender_email = "my@gmail.com"  # Enter your address
 receiver_email = "receiver@gmail.com"  # Enter receiver address
 # password = input("Type your password and press enter: ")
 
-
 #################################################################################
 
 def sendmail(msg):
     with smtplib.SMTP(smtp_server, port) as server:
         server.sendmail(sender_email, receiver_email, msg)
 
+#################################################################################
+
 def checkItemCountAndSendMail(count,procedure):
     if (count < 3):
         message = (str(procedure) + " supply is low, the present count is = " + str(count))
-        print("mail message is", message)
+        if (count < 0):
+            message =(str(procedure) + " has been finished from inventory, do not initiate procedure.")
+        print(message)
         sendmail(message)
         print("mail sent")
         return 1
@@ -76,6 +83,8 @@ def reduceCount(item):
     writer.writerows(lines)
     checkItemCountAndSendMail(count_value,lines[row_count][0])
 
+#################################################################################
+
 def checkInventoryFile(inventoryFilePath):
     inventoryFileCorrectFormat=['Item','Qty']
     if pathlib.Path(inventoryFilePath).is_file():
@@ -91,6 +100,8 @@ def checkInventoryFile(inventoryFilePath):
 
     print("Inventory File Missing")
     return False
+
+#################################################################################
 
 def checkProcedureAndOperate(procedure):
     if procedure in procedureDict:
@@ -124,7 +135,6 @@ class Handler(watchdog.events.PatternMatchingEventHandler):
                                                              ignore_directories=True, case_sensitive=False)
 
     def on_modified(self, event):
-        patientCSVpath="D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\devices\\patient-monitors\\x64\\debug\\patientdetailsReport.csv"
         print("Watchdog received modified event - % s." % event.src_path)
         if(str(event.src_path)==patientCSVpath):
             print("right file modified")
@@ -137,8 +147,6 @@ class Handler(watchdog.events.PatternMatchingEventHandler):
 #################################################################################
 
 if __name__ == "__main__":
-    #path to be observed
-    src_path = "D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\devices\\patient-monitors\\x64\debug\\"
 
     event_handler = Handler()
     observer = watchdog.observers.Observer()

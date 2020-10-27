@@ -4,17 +4,16 @@ import sys
 import threading
 
 def takePatientInput():
-    patientName=input("Enter Patient Name: ")
-    patientAge=input("Enter Patient Age: ")
-    patientGender=input("Enter Patient Gender, M for Male, F for Female: ")
-    patientProcedure=input("Enter name of Procedure: ")
-    patientData=str(patientName)+";"+str(patientAge)+";"+str(patientGender)+";"+str(patientProcedure)
-    print(patientData.replace(";"," "))
-    if(input("Check if details entered are correct yes/no\n")=="yes"):
-        return patientData
-    else:
-        takePatientInput()
-
+    while(1):
+        patientName = input("Enter Patient Name: ")
+        patientAge = input("Enter Patient Age: ")
+        patientGender = input("Enter Patient Gender, M for Male, F for Female: ")
+        patientProcedure = input("Enter name of Procedure: ")
+        patientData = str(patientName) + ";" + str(patientAge) + ";" + str(patientGender) + ";" + str(patientProcedure)
+        print(patientData.replace(";", " "))
+        if (input("Check if details entered are correct yes/no\n") == "yes"):
+            break
+    return patientData
 
 ########################################
     
@@ -44,8 +43,8 @@ def on_publish(client, userdata, mid):
 ########################################
     
 def subscriber():
-    #broker_address="127.0.0.1"
-    broker_address="mqtt.eclipse.org"
+    broker_address="127.0.0.1"
+    #broker_address="mqtt.eclipse.org"
     client = mqtt.Client() #create new instance
     client.on_message=on_message #attach function to callback
     client.connect(broker_address) #connect to broker
@@ -56,8 +55,8 @@ def subscriber():
     
 ###########################################
 def publisher():
-    #broker_address="127.0.0.1"
-    broker_address="mqtt.eclipse.org"
+    broker_address="127.0.0.1"
+    #broker_address="mqtt.eclipse.org"
     client = mqtt.Client("P2") #create new instance
     client.on_message=on_message #attach function to callback
     client.connect(broker_address) #connect to broker
