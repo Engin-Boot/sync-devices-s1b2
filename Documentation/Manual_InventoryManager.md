@@ -8,15 +8,15 @@ As mentioned in the problem statement when a cardiac procedure is performed, a c
 
 ## Usage
 
-All paths are set as per usage in this repository, reset these paths as per your requirements: the path of directory to be watched for patient info file(src_path), patient file path (file: patientdetailsReport.csv, patientCSVpath) and inventory file path(file: Inventory.csv, InventoryPath)in global variable section of script.
+All paths are set as per this repository,  you can reset these paths as per your requirements: the path of directory to be watched for patient info file, patient file path and inventory file path in global variable section of script.
 
-This script uses local SMTP server to recieve mail which can be changed to run on any other SMTP server, to initiate local SMTP server use command mentioned in the next line in command prompt.
+This script uses local SMTP server to recieve mail which can be changed to run on any other SMTP server, to initiate local SMTP server use command mentioned in the next line in command prompt. Run SMTP server.
 
 ```
 python -m smtpd -c DebuggingServer -n localhost:1025
 ```
 
-Now execute this python file as
+Now execute Inventory Manager python file as
 
 ```
 python InventoryManager.py
@@ -35,3 +35,7 @@ A procedure dictionary is used which lists out procedures and required item for 
 Count of the required item is reduced in the inventory CSV.
 
 Whenever count of item is below a given threshold(here 3) a mail is sent using SMTP(here to local SMTP server).
+
+This is simple chart to elaborate all basic components.
+
+[!alt text](https://github.com/Engin-Boot/sync-devices-s1b2/blob/master/Documentation/flow.png)
