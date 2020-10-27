@@ -36,6 +36,6 @@ Count of the required item is reduced in the inventory CSV.
 
 Whenever count of item is below a given threshold(here 3) a mail is sent using SMTP(here to local SMTP server).
 
-This is simple chart to elaborate all basic components.
+This is simple chart to elaborate all basic components:
 
-[!alt text](https://github.com/Engin-Boot/sync-devices-s1b2/blob/master/Documentation/flow.png)
+![alt text] (https://github.com/Engin-Boot/sync-devices-s1b2/blob/master/Documentation/flow.png)
