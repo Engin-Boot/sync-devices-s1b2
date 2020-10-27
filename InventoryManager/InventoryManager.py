@@ -9,15 +9,16 @@ import csv
 # login is not required while running with local SMTP server
 
 #################################################################################
-#Global Variables which are fixed
+#Global Variables 
 
 procedureDict={"cardiac": "Cardiac Cathether"}
 #path to inventory file
-InventoryPath="D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\InventoryManager\\Inventory.csv"
+InventoryPath=".\\Inventory.csv"
 #path to be observed
-src_path = "D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\devices\\patient-monitors\\x64\debug\\"
+src_path = "..\\devices\\patient-monitors\\x64\debug\\"
 #path to patient info file
-patientCSVpath="D:\\a\\sync-devices-s1b2\\sync-devices-s1b2\\devices\\patient-monitors\\x64\\debug\\patientdetailsReport.csv"
+patientCSVpath="..\\devices\\patient-monitors\\x64\\debug\\patientdetailsReport.csv"
+
 #################################################################################
 #SMTP details, using localhost here so login and email not required
 
