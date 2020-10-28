@@ -36,11 +36,7 @@ int main()
 		cout << check << endl;
 	}
 	PUBLISHmain();
-	cout << "welcome!!! enter 1 if you want to enter your details else do nothing\n";
-	int option;
-	cin >> option;
-	if (option == 1)
-		mainMenu();
-	Sleep(2000);
+
+	while (userInput());
 	return 0;
 }
