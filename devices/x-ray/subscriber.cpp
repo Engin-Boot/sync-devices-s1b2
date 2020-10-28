@@ -23,7 +23,7 @@ int messageArrived(void *context, char *topicName, int topicLen, MQTTAsync_messa
 {
 	//size_t delimlen = 0;
 	printf("%.*s\n", message->payloadlen, (char*)message->payload);
-	rec_msg = (char*)message->payload;
+	rec_msg.assign((char*)message->payload, message->payloadlen);
 	saveDataToCSV((char*)message->payload);
 	fflush(stdout);
 	MQTTAsync_freeMessage(&message);
