@@ -20,17 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="patient-monitors-main.cpp" />
-    <ClCompile Include="mainMenu.cpp" />
-    <ClCompile Include="patientCounter.cpp" />
-    <ClCompile Include="publisher.cpp" />
-    <ClCompile Include="saveDataToCSV.cpp" />
-    <ClCompile Include="subscriber.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="patientInfo.h" />
-    <ClInclude Include="publisher.h" />
-    <ClInclude Include="pubsub_opts.h" />
-    <ClInclude Include="subscriber.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -125,7 +114,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>paho-mqtt3as.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Device.lib;paho-mqtt3as.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d "$(ProjectDir).\lib\paho-mqtt3as.dll" "$(OutDir)"</Command>
@@ -170,7 +159,7 @@
       <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>paho-mqtt3as.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-   <PostBuildEvent>
+    <PostBuildEvent>
       <Command>xcopy /y /d "$(ProjectDir).\lib\paho-mqtt3as.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

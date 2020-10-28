@@ -2,12 +2,14 @@
 #include<stdio.h>
 #include<iostream>
 #include<stdlib.h>
-#include "publisher.h"
-#include "subscriber.h"
+#include "./inc/publisher.h"
+#include "./inc/subscriber.h"
 using namespace std;
 extern int patientcount();
 extern void mainMenu();
 
+char* subclientID = (char*)"x-ray1";
+char* pubclientID = (char*)"x-ray";
 
 bool userInput()
 {

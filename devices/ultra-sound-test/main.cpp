@@ -1,12 +1,16 @@
 #define CATCH_CONFIG_MAIN
 #include "../patient-monitors-test/catch.hpp"
-#include "../ultra-sound/patientInfo.h"
-#include "../ultra-sound/publisher.h"
-#include "../ultra-sound/subscriber.h"
+#include "../ultra-sound/inc/patientInfo.h"
+#include "../ultra-sound/inc/publisher.h"
+#include "../ultra-sound/inc/subscriber.h"
 
 using namespace std;
 extern int patientcount();
 extern void mainMenu();
+
+char* subclientID = (char*)"ultra-soundt1";
+char* pubclientID = (char*)"ultra-soundt2";
+
 
 TEST_CASE("When user enters 1 and enters data to publish then the data to be published is processed as a correct string")
 {
