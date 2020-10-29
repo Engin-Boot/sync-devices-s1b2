@@ -5,30 +5,10 @@
 #include "./inc/publisher.h"
 #include "./inc/subscriber.h"
 using namespace std;
-extern int patientcount();
-extern void mainMenu();
+extern bool userInput();
 
 char* subclientID = (char*)"x-ray1";
 char* pubclientID = (char*)"x-ray";
-
-bool userInput()
-{
-	cout << "welcome!!! enter 1 if you want to enter your details\n enter 0 to exit\n else do nothing\n";
-	int option;
-	cin >> option;
-
-	if (option == 0)
-	{
-		cout << "exiting the device" << endl;
-		Sleep(2000);
-		return false;
-	}
-	if (option == 1)
-		mainMenu();
-	Sleep(2000);
-
-	return true;
-}
 
 int main()
 {
